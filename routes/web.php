@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/layout/home', function(){ return view('layouts.home'); });
+Route::get('/layout/guest', function(){ return view('layouts.guest'); });
+Route::get('/layout/employee', function(){ return view('layouts.employee'); });
+Route::get('/layout/checkout', function(){ return view('layouts.checkout'); });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
