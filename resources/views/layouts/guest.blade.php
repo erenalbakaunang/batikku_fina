@@ -44,18 +44,18 @@
                     <!-- <hr> -->
                     <p>Batikku - Batik Fashion Trendy</p>
                     <label for="">Email</label>
-                    <input type="text" placeholder="example@gmail.com">
+                    <input type="text" placeholder="Enter your username">
                     <label for="">Password</label>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Enter your password">
                     <button>Login</button>
                     <p>
-                        <a href="#">Forgot Password?</a>
+                    <label for="">Don’t have an Account ? <a href="#">Register</a></label>
                     </p>
                 </form>
             </div>
-            <!-- <div class="right">
+            <div class="right">
                 <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
-            </div> -->
+            </div>
         </div>
     </body>
 </html>

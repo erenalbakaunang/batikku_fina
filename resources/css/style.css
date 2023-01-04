@@ -3922,13 +3922,12 @@ ol {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 	padding-left: 20px;
 	margin-left: 10%;
-	margin-top: 50%;
-	margin-bottom: 100%;
+	margin-top: 5%;
+	border: black;
 }
 
 .login {
     width: 400px;
-	border: black;
 }
 
 form {
@@ -3940,12 +3939,8 @@ h1 {
     margin: 10px;
     text-align: left;
     font-weight: bolder;
-	font-size: 50px;
-    text-transform: uppercase;
-}
-
-hr {
-    border-top: 2px solid #ffa12c;
+	font-size: 30px;
+    /* text-transform: uppercase; */
 }
 
 p {
@@ -3965,6 +3960,8 @@ form label {
     font-size: 16px;
     font-weight: 600;
     padding: 5px;
+	padding-top: 8px;
+	margin-bottom: 0px;
 }
 
 input {
@@ -3987,7 +3984,7 @@ button {
     cursor: pointer;
     margin-top: 20px;
     border-radius: 5px;
-    background: #ffa12c;
+    background: black;
 }
 
 button:hover {
