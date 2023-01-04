@@ -41,4 +41,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPegawaiProfile()
+    {
+        $findEmployee = $this->getPegawai();
+        
+        return $findEmployee;
+    }
+
+    public function getPegawai()
+    {
+        return Pegawai::where('user_id', $this->id)->first();
+    }
+
+    public function isPegawai()
+    {
+        if( $pegawaiProfile = $this->getPegawaiProfile() ) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
 }
