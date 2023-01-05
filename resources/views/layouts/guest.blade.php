@@ -48,14 +48,22 @@
                     <label for="">Password</label>
                     <input type="password" placeholder="Enter your password">
                     <button>Login</button>
+                    <div class="posisireg">
                     <p>
-                    <label for="">Don’t have an Account ? <a href="#">Register</a></label>
+                        <label for="">Don’t have an Account ? <a href="#">Register</a></label>
                     </p>
+                    </div>
                 </form>
             </div>
-            <div class="right">
-                <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
-            </div>
         </div>
+        <div class="right login-right-box">
+            <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
+        </div>
+            
+        <!-- <div class="AGcontainer">
+                <div class="right">
+                    <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
+                </div>
+        </div> -->
     </body>
 </html>
