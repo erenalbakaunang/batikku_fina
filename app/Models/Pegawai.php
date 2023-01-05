@@ -10,6 +10,7 @@ class Pegawai extends Model
     use HasFactory;
 
     protected $table = 'pegawai';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.

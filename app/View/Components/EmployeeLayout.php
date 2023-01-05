@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class CheckoutLayout extends Component
+class EmployeeLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.

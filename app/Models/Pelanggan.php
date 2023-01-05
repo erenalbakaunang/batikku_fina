@@ -10,4 +10,5 @@ class Pelanggan extends Model
     use HasFactory;
 
     protected $table = 'pelanggan';
+    public $timestamps = false;
 }
