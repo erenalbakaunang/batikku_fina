@@ -14,12 +14,14 @@
         <tbody>
             @foreach($data as $key => $produk)
                 <tr>
-                    <td>1</td>
-                    <td>
-                        <img src="{{ url('foto/'.$produk->foto) }}" alt="" title="" class="col-lg-2" />
+                    <td width="10%">{{ $produk->id_produk }}</td>
+                    <td width="15%" style="vertical-align: top !important;">
+                        <img src="{{ url('foto/'.$produk->foto) }}" alt="" title="" style="height: 100px;" />
                         {{ $produk->nama_produk }}
                     </td>
-                    <td>{{ $produk->harga }}</td>
+                    <td width="20%">
+                        Rp.{{ number_format($produk->harga, 0, ',', '.') }}
+                    </td>
                     <td>{{ $produk->stok }}</td>
                     <td></td>
                     <td>

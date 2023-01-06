@@ -150,7 +150,7 @@
                 <!-- Container fluid  -->
                 <!-- ============================================================== -->
                 <div class="container-fluid">
-                    <div style="min-height: 1000px; width: 100%">
+                    <div style="min-height: 1000px; width: 100%; overflow: auto; margin-bottom: 225px;">
                         <div class="pt-5 pl-5 pr-5">
                             {{ $slot }}
                         </div>

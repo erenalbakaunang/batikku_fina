@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('telepon')->nullable();
             $table->string('jenis_kelamin', 20)->nullable();
             $table->date('tanggal_lahir')->nullable();
+            $table->text('alamat')->nullable();
             // $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

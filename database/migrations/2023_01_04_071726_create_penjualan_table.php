@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_pesanan', 25)->nullable();
-            $table->integer('jumlah')->nullable();
-            $table->string('pembayaran', 20)->nullable();
-            $table->string('status', 30)->nullable();
-            $table->date('tanggal')->nullable();
+            $table->string('nomor_pesanan', 25);
+            $table->integer('jumlah');
+            $table->integer('jumlah_produk');
+            $table->string('pembayaran', 20);
+            $table->string('status', 30);
+            $table->date('tanggal');
 
             $table->unsignedBigInteger('id_pelanggan');
             $table->foreign('id_pelanggan')->references('id')->on('pelanggan');

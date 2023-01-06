@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('stok')->nullable();
             $table->string('foto', 255)->nullable();
             $table->text('deskripsi')->nullable();
+            $table->string('id_produk', 10)->nullable();
             // $table->timestamps();
         });
     }

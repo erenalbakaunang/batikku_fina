@@ -68,7 +68,9 @@ table.table-produk {
     border: solid 1px #ddd;
 }
 table.table-produk td {
-    vertical-align: text-top !important;
+    vertical-align: top !important;
     padding-left: 10px;
     padding-right: 10px;
+    white-space: nowrap;
+    word-break: break-word;
 }
