@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pegawai;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 
 class ProdukController extends Controller
@@ -30,10 +31,13 @@ class ProdukController extends Controller
         ]);
     }
 
-    public function edit(Request $request)  
+    public function edit(Request $request, $id)
     {
+        $produk = Produk::find($id);
+
         return view('pegawai.produk.edit', [
             'user' => $request->user(),
+            'produk' => $produk,
         ]);
     }
 
@@ -41,8 +45,8 @@ class ProdukController extends Controller
     {
         $request->validate([
             'nama_produk' => ['required', 'string', 'max:100'],
-            'harga' => ['required', 'integer', 'max:11'],
-            'stok' => ['required', 'integer', 'max:11'],
+            'harga' => ['required', 'integer'],
+            'stok' => ['required', 'integer'],
             'foto' => 'required|mimes:jpeg,png,jpg,gif',
             'deskripsi' => ['required', 'string'],
         ]);
@@ -64,13 +68,49 @@ class ProdukController extends Controller
         return Redirect::route('pegawai.produk.index')->with('status', 'produk-added');
     }
 
-    public function update(Request $request)  
+    public function update(Request $request, $id)  
     {
-        dd('penjualan.update', $request);
+        $produkModel = Produk::find($id);
+
+        $request->validate([
+            'nama_produk' => ['required', 'string', 'max:100'],
+            'harga' => ['required', 'integer'],
+            'stok' => ['required', 'integer'],
+            'foto' => 'mimes:jpeg,png,jpg,gif',
+            'deskripsi' => ['required', 'string'],
+        ]);
+
+        $foto = $request->file('foto');
+        
+        if(!empty($foto)) {
+            // delete old foto file
+            $old_path = public_path('foto/'.$produkModel->foto);
+            if(file_exists($old_path)) {
+                File::delete($old_path);
+            }
+
+            // save new foto file
+            $imageName = time().'.'.$request->foto->extension();  
+            $request->foto->move(public_path('foto'), $imageName);
+
+            $updateProduk = $produkModel->update(['foto' => $imageName]);
+        }
+
+        $updateProduk = $produkModel->update([
+            'nama_produk' => $request->get('nama_produk'),
+            'harga' => $request->get('harga'),
+            'stok' => $request->get('stok'),
+            'deskripsi' => $request->get('deskripsi'),
+        ]);
+
+        return Redirect::route('pegawai.produk.edit', $id)->with('status', 'produk-updated');
     }
 
-    public function delete(Request $request)  
+    public function delete(Request $request, $id)  
     {
-        dd('penjualan.delete', $request);
+        $produkModel = Produk::find($id);
+        $produkModel->delete();
+
+        return Redirect::route('pegawai.produk.index')->with('status', 'produk-deleted');
     }
 }

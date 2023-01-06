@@ -18,3 +18,4 @@ yarn-error.log
 /.vscode
 public/foto/*
 !public/foto/.gitkeep
+!public/foto/product*.png

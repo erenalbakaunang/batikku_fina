@@ -22,11 +22,11 @@ return new class extends Migration
             $table->string('status', 30);
             $table->date('tanggal');
 
-            $table->unsignedBigInteger('id_pelanggan');
-            $table->foreign('id_pelanggan')->references('id')->on('pelanggan');
+            $table->unsignedBigInteger('pelanggan_id');
+            $table->foreign('pelanggan_id')->references('id')->on('pelanggan')->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_produk');
-            $table->foreign('id_produk')->references('id')->on('produk');
+            $table->unsignedBigInteger('produk_id');
+            $table->foreign('produk_id')->references('id')->on('produk')->onDelete('cascade');
             // $table->timestamps();
         });
     }

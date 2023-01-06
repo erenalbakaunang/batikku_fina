@@ -1,9 +1,5 @@
 <x-employee-layout>
-    <style type="text/css">
-        .page-breadcrumb {
-            display: none !important;
-        }
-    </style>
+    <style>.page-breadcrumb { display: none !important; } </style>
 
     @if (session('status') === 'profile-updated')
         <div style="margin: 0 -25px 20px;"

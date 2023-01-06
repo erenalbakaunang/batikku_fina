@@ -54,6 +54,11 @@ class User extends Authenticatable
         return Pegawai::where('user_id', $this->id)->first();
     }
 
+    public function getPelanggan()
+    {
+        return Pelanggan::where('user_id', $this->id)->first();
+    }
+
     public function isPegawai()
     {
         if( $pegawaiProfile = $this->getPegawaiProfile() ) {

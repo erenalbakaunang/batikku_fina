@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('pelanggan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pelanggan', 50)->nullable();
-            $table->integer('telepon')->nullable();
+            $table->string('telepon', 15)->nullable();
             $table->string('jenis_kelamin', 20)->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->text('alamat')->nullable();
             // $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

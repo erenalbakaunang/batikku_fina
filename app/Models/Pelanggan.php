@@ -24,4 +24,11 @@ class Pelanggan extends Model
         'jenis_kelamin',
         'user_id',
     ];
+
+    public function getEmail()
+    {
+        $user = User::where(['id' => $this->user_id])->first();
+
+        return $user->email;
+    }
 }

@@ -80,6 +80,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product7.png',
                 'id_produk' => 'P07',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 2,
@@ -88,6 +89,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product6.png',
                 'id_produk' => 'P06',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 3,
@@ -96,6 +98,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product5.png',
                 'id_produk' => 'P05',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 4,
@@ -104,6 +107,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product4.png',
                 'id_produk' => 'P04',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 5,
@@ -112,6 +116,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product1.png',
                 'id_produk' => 'P01',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 6,
@@ -120,6 +125,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product2.png',
                 'id_produk' => 'P02',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
             [
                 'id' => 7,
@@ -128,6 +134,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => 1,
                 'foto' => 'product3.png',
                 'id_produk' => 'P03',
+                'deskripsi' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
             ],
         ];
 
@@ -138,6 +145,7 @@ class DatabaseSeeder extends Seeder
                 'stok' => $data['stok'],
                 'foto' => $data['foto'],
                 'id_produk' => $data['id_produk'],
+                'deskripsi' => $data['deskripsi'],
             ]);
         }
     }
@@ -151,8 +159,8 @@ class DatabaseSeeder extends Seeder
             'pembayaran' => 'Transfer BNI',
             'status' => 'Belum Bayar',
             'tanggal' => '2023-01-03',
-            'id_pelanggan' => 1,
-            'id_produk' => 5,
+            'pelanggan_id' => 1,
+            'produk_id' => 5,
         ]);
         
         DB::table('penjualan')->insert([
@@ -162,8 +170,8 @@ class DatabaseSeeder extends Seeder
             'pembayaran' => 'Transfer BNI',
             'status' => 'Belum Bayar',
             'tanggal' => '2023-01-03',
-            'id_pelanggan' => 1,
-            'id_produk' => 4,
+            'pelanggan_id' => 1,
+            'produk_id' => 4,
         ]);
 
         DB::table('penjualan')->insert([
@@ -173,8 +181,8 @@ class DatabaseSeeder extends Seeder
             'pembayaran' => 'Transfer Mandiri',
             'status' => 'Pembayaran Terkonfirmasi',
             'tanggal' => '2023-01-06',
-            'id_pelanggan' => 1,
-            'id_produk' => 6,
+            'pelanggan_id' => 1,
+            'produk_id' => 6,
         ]);
     }
 

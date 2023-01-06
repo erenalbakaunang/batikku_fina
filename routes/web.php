@@ -27,11 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'role'])->name('dashboard');
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/profile', [PFController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [PFController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [PFController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/xprofile', [PFController::class, 'edit'])->name('profile.edit');
+    Route::patch('/xprofile', [PFController::class, 'update'])->name('profile.update');
+    Route::delete('/xprofile', [PFController::class, 'destroy'])->name('profile.destroy');
+});
 
 // Panel Pelanggan
 Route::middleware(['pelanggan'])->group(function () {
@@ -61,15 +61,15 @@ Route::middleware(['auth', 'pegawai'])->group(function () {
     // Produk
     Route::get('/pegawai/produk/index', [ProdukController::class, 'index'])->name('pegawai.produk.index');
     Route::get('/pegawai/produk/add', [ProdukController::class, 'add'])->name('pegawai.produk.add');
-    Route::get('/pegawai/produk/edit', [ProdukController::class, 'edit'])->name('pegawai.produk.edit');
-    Route::get('/pegawai/produk/delete', [ProdukController::class, 'delete'])->name('pegawai.produk.delete');
+    Route::get('/pegawai/produk/edit/{id}', [ProdukController::class, 'edit'])->name('pegawai.produk.edit');
+    Route::get('/pegawai/produk/delete/{id}', [ProdukController::class, 'delete'])->name('pegawai.produk.delete');
     Route::post('/pegawai/produk/insert', [ProdukController::class, 'insert'])->name('pegawai.produk.insert');
-    Route::post('/pegawai/produk/update', [ProdukController::class, 'update'])->name('pegawai.produk.update');
+    Route::post('/pegawai/produk/update/{id}', [ProdukController::class, 'update'])->name('pegawai.produk.update');
 
-    // Produk
+    // Penjualan
     Route::get('/pegawai/penjualan/index', [PenjualanController::class, 'index'])->name('pegawai.penjualan.index');
-    Route::get('/pegawai/penjualan/edit', [PenjualanController::class, 'edit'])->name('pegawai.penjualan.edit');
-    Route::post('/pegawai/penjualan/update', [PenjualanController::class, 'update'])->name('pegawai.penjualan.update');
+    Route::get('/pegawai/penjualan/edit/{id}', [PenjualanController::class, 'edit'])->name('pegawai.penjualan.edit');
+    Route::post('/pegawai/penjualan/update/{id}', [PenjualanController::class, 'update'])->name('pegawai.penjualan.update');
 });
 
 require __DIR__.'/auth.php';

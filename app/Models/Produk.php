@@ -24,4 +24,17 @@ class Produk extends Model
         'foto',
         'deskripsi',
     ];
+
+    public function getPenjualan()
+    {
+        $penjualanModel = new Penjualan();
+        $total_penjualan = 0;
+
+        $datas = $penjualanModel->where(['produk_id' => $this->id])->get();
+        foreach($datas as $data) {
+            $total_penjualan += $data['jumlah_produk'];
+        }
+
+        return $total_penjualan;
+    }
 }

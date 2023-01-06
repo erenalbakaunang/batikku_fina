@@ -23,46 +23,17 @@
                 </div>
             </div>
             <div class="row product__filter">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product7.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Blue Blouse Batik Women Flower</h6>
-                            <h5>Rp200.000</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product6.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Brown Lurik Set Women</h6>
-                            <h5>Rp195.000</h5>
+                @foreach($newProducts as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
+                            <div class="product__item__text">
+                                <h6><a href="{{ route('index.product', $product->id) }}">{{ $product->nama_produk }}</a></h6>
+                                <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product5.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Black Batik Women Set Casual</h6>
-                            <h5>Rp210.000</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product4.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Tosca grey Batik Shirt Man</h6>
-                            <h5>Rp200.000</h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -84,46 +55,17 @@
                 </div>
             </div>
             <div class="row product__filter">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product1.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Cream Blue Blouse Women</h6>
-                            <h5>Rp250.000</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product2.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Blue Blouse Women Modern</h6>
-                            <h5>Rp270.000</h5>
+                @foreach($popular as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
+                            <div class="product__item__text">
+                                <h6><a href="{{ route('index.product', $product->id) }}">{{ $product->nama_produk }}</a></h6>
+                                <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product3.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Pink Green Blouse Women</h6>
-                            <h5>Rp210.000</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{Vite::asset('resources/img/product4.png')}}">
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Tosca grey Batik Shirt Man</h6>
-                            <h5>Rp200.000</h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

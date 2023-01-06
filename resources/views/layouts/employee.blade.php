@@ -129,13 +129,15 @@
                 <div class="page-breadcrumb bg-white shadow-sm rounded">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Produk</h4>
+                            <h4 class="page-title">
+                                @yield('title')
+                            </h4>
                         </div>
                         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                             <div class="d-md-flex">
                                 <ol class="breadcrumb ms-auto">
                                 </ol>
-                                <a href="{{ route('pegawai.produk.add') }}" class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                                <a id="buttonTambahProduk" href="{{ route('pegawai.produk.add') }}" class="btn btn-danger d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
                                     <i class="fa fa-plus-circle"></i>&nbsp;
                                     Tambah Produk
                                 </a>
@@ -150,10 +152,8 @@
                 <!-- Container fluid  -->
                 <!-- ============================================================== -->
                 <div class="container-fluid">
-                    <div style="min-height: 1000px; width: 100%; overflow: auto; margin-bottom: 225px;">
-                        <div class="pt-5 pl-5 pr-5">
-                            {{ $slot }}
-                        </div>
+                    <div style="min-height: 1000px; width: 100%; overflow: visible; margin-bottom: 225px;">
+                        {{ $slot }}
                     </div>
                 </div>
                 <!-- ============================================================== -->

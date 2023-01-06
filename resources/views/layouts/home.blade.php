@@ -47,7 +47,12 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-md-6">
+
+                    @if (Auth::check())
+                        <div class="col-lg-8 col-md-8">
+                    @else
+                        <div class="col-lg-6 col-md-6">
+                    @endif
                         <div class="header__nav__option">
                             <div class="search-box col-md-10" style="float: left;">
                                 <div class="search-icon">
@@ -68,12 +73,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2">
-                        <div class="mt-4 pt-1">
-                            <a class="btn btn-sm btn-dark pr-3 pl-3" style="color: white;" href="{{ route('login') }}" target="_blank">LOGIN</a>
-                            <a class="btn btn-sm btn-dark pr-2 pl-2" style="color: white;" href="{{ route('register') }}" target="_blank">REGISTER</a>
+
+                    @if (!Auth::check())
+                        <div class="col-lg-2 col-md-2">
+                            <div class="mt-4 pt-1">
+                                <a class="btn btn-sm btn-dark pr-3 pl-3" style="color: white;" href="{{ route('login') }}" target="_blank">LOGIN</a>
+                                <a class="btn btn-sm btn-dark pr-2 pl-2" style="color: white;" href="{{ route('register') }}" target="_blank">REGISTER</a>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
                 <div class="canvas__open"><i class="fa fa-bars"></i></div>
             </div>

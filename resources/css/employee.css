@@ -40,11 +40,6 @@ body {
     margin-top: 0px !important;
 }
 
-div.form-profile {
-    border: solid 1px #dedede;
-    padding: 25px;
-}
-
 header.topbar {
     overflow: auto;
 }
@@ -67,10 +62,29 @@ header.topbar {
 table.table-produk {
     border: solid 1px #ddd;
 }
+
+table.table-produk th {
+    background-color: #C8B39B;
+    color: black;
+}
+
 table.table-produk td {
-    vertical-align: top !important;
     padding-left: 10px;
     padding-right: 10px;
     white-space: nowrap;
     word-break: break-word;
+    color: black;
+}
+
+div.form-profile {
+    border: solid 1px #dedede;
+    padding: 25px;
+}
+
+.form-profile.penjualan .form-group {
+    margin-bottom: 7px !important;
+}
+
+.form-profile.penjualan .form-group label {
+    margin-bottom: 0 !important;
 }
