@@ -11,4 +11,17 @@ class Produk extends Model
 
     protected $table = 'produk';
     public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'nama_produk',
+        'harga',
+        'stok',
+        'foto',
+        'deskripsi',
+    ];
 }

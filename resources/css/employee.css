@@ -57,3 +57,18 @@ header.topbar {
     color: #000;
     font-weight: 500;
 }
+
+.page-breadcrumb {
+    border-bottom: solid 1px #ddd;
+    z-index: 10;
+    position: relative;
+}
+
+table.table-produk {
+    border: solid 1px #ddd;
+}
+table.table-produk td {
+    vertical-align: text-top !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/css/bootstrap.min.css', 'resources/css/style.min.css', 'resources/css/employee.css', 
+        @vite(['resources/css/bootstrap.min.css', 'resources/css/style.min.css', 
+        'resources/css/employee.css', 'resources/css/font-awesome.min.css',
         'resources/js/sidebarmenu.js', 'resources/js/waves.js', 
         'resources/js/app-style-switcher.js', 'resources/js/custom.js', 
         'resources/js/dashboard1.js', 'resources/js/jquery.min.js', 
@@ -75,7 +76,7 @@
                         <!-- ============================================================== -->
                         <ul class="navbar-nav ms-auto d-flex align-items-center">
                             <li>
-                                <a class="profile-pic" href="#">
+                                <a class="profile-pic" href="{{ route('pegawai.profile.index') }}">
                                     <img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt="user-img" width="20"
                                         class="img-circle"></a>
                             </li>
@@ -125,7 +126,7 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <div class="page-breadcrumb bg-white hide">
+                <div class="page-breadcrumb bg-white shadow-sm rounded">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title">Produk</h4>
@@ -134,8 +135,10 @@
                             <div class="d-md-flex">
                                 <ol class="breadcrumb ms-auto">
                                 </ol>
-                                <a target="_blank"
-                                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Tambah Produk</a>
+                                <a href="{{ route('pegawai.produk.add') }}" class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                                    <i class="fa fa-plus-circle"></i>&nbsp;
+                                    Tambah Produk
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -148,7 +151,9 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                     <div style="min-height: 1000px; width: 100%">
-                        {{ $slot }}
+                        <div class="pt-5 pl-5 pr-5">
+                            {{ $slot }}
+                        </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
