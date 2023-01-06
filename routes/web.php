@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Pegawai\PenjualanController;
 use App\Http\Controllers\Pegawai\ProdukController;
 use App\Http\Controllers\Pegawai\ProfileController;
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['role']);
+Route::middleware([])->group(function () {
+    Route::get('/', [IndexController::class, 'index'])->name('index.home');
+});
 
 Route::get('/layout/home', function(){ return view('layouts.home'); });
 Route::get('/layout/guest', function(){ return view('layouts.guest'); });

@@ -20,50 +20,17 @@
         'resources/js/jquery.nice-select.min.js', 'resources/js/jquery.nicescroll.min.js', 
         'resources/js/jquery.magnific-popup.min.js', 'resources/js/jquery.countdown.min.js', 
         'resources/js/jquery.slicknav.js', 'resources/js/mixitup.min.js', 
-        'resources/js/owl.carousel.min.js', 'resources/js/main.js'])
+        'resources/js/owl.carousel.min.js', 'resources/js/main.js', 'resources/js/app.js'])
     </head>
-    <!-- <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            </div>
-        </div>
-    </body> -->
-
     <body>
         <div class="Gcontainer">
             <div class="login">
-                <form action="">
-                    <p>Welcome !</p>
-                    <h1>Login in to</h1>
-                    <!-- <hr> -->
-                    <p>Batikku - Batik Fashion Trendy</p>
-                    <label for="">Email</label>
-                    <input type="text" placeholder="Enter your username">
-                    <label for="">Password</label>
-                    <input type="password" placeholder="Enter your password">
-                    <button>Login</button>
-                    <div class="posisireg">
-                    <p>
-                        <label for="">Don’t have an Account ? <a href="#">Register</a></label>
-                    </p>
-                    </div>
-                </form>
+                {{ $slot }}
             </div>
         </div>
+
         <div class="right login-right-box">
             <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
         </div>
-            
-        <!-- <div class="AGcontainer">
-                <div class="right">
-                    <img src="{{Vite::asset('resources/img/loginRegister.png')}}" alt="">
-                </div>
-        </div> -->
     </body>
 </html>

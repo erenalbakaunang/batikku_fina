@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pegawai', 30);
-            $table->string('jenis_kelamin', 20);
-            $table->text('alamat');
+            $table->string('nama_pegawai', 30)->nullable();
+            $table->string('jenis_kelamin', 20)->nullable();
+            $table->text('alamat')->nullable();
             // $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

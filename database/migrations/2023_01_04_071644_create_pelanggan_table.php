@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('pelanggan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pelanggan', 50);
-            $table->integer('telepon');
-            $table->string('jenis_kelamin', 20);
-            $table->date('tanggal_lahir');
+            $table->string('nama_pelanggan', 50)->nullable();
+            $table->integer('telepon')->nullable();
+            $table->string('jenis_kelamin', 20)->nullable();
+            $table->date('tanggal_lahir')->nullable();
             // $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

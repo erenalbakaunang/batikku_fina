@@ -11,4 +11,17 @@ class Pelanggan extends Model
 
     protected $table = 'pelanggan';
     public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'nama_pelanggan',
+        'telepon',
+        'tanggal_lahir',
+        'jenis_kelamin',
+        'user_id',
+    ];
 }

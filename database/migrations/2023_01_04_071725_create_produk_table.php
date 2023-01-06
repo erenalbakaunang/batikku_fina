@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_produk', 100);
-            $table->integer('harga');
-            $table->integer('stok');
-            $table->string('foto', 255);
-            $table->text('deskripsi');
+            $table->string('nama_produk', 100)->nullable();
+            $table->integer('harga')->nullable();
+            $table->integer('stok')->nullable();
+            $table->string('foto', 255)->nullable();
+            $table->text('deskripsi')->nullable();
             // $table->timestamps();
         });
     }
