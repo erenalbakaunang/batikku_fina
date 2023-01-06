@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'pegawai' => \App\Http\Middleware\Pegawai::class,
+        'pelanggan' => \App\Http\Middleware\Pelanggan::class,
         'role' => \App\Http\Middleware\UserRole::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

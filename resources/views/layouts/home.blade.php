@@ -42,8 +42,8 @@
                     <div class="col-lg-3 col-md-3">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li><a href="./shop.html">About Us</a></li>
+                                <li><a href="{{ route('index.home') }}">Home</a></li>
+                                <li><a href="{{ route('index.about') }}">About Us</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -54,13 +54,17 @@
                                     <i class="fa fa-regular fa-magnifying-glass"></i>
                                 </div>
                                 <div class="search-input w-full">
-                                    <input type="text" class="input w-full" placeholder="Search Product">
+                                    <form method="POST" action="{{ route('index.search') }}" style="margin: 0;">
+                                        @csrf
+
+                                        <input type="text" name="keyword" class="input w-full" placeholder="Search Product" />
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-md-2" style="float: left; padding: 15px 0;">
                                 <!-- <a href="#" class="search-switch"><img src="{{Vite::asset('resources/img/icon/search.png')}}" alt=""></a> -->
-                                <a href="#"><img src="{{Vite::asset('resources/img/icon/cart.png')}}" alt=""> </a>
-                                <a href="#"><img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt=""> </a>
+                                <a href="{{ route('index.cart') }}"><img src="{{Vite::asset('resources/img/icon/cart.png')}}" alt=""> </a>
+                                <a href="{{ route('index.profile') }}"><img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt=""> </a>
                             </div>
                         </div>
                     </div>

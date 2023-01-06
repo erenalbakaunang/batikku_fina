@@ -8,7 +8,7 @@
         <p>Welcome !</p>
         <h1>Login in to</h1>
         
-        <p>Batikku - Batik Fashion Trendy</p>
+        <p>Batikku - 'Batik Fashion Trendy'</p>
         <x-input-label for="email" :value="__('Email')" />
         <x-text-input id="email" class="w-full" type="email" placeholder="Enter your username" name="email" :value="old('email')" required autofocus />
         

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/css/style.min.css', 'resources/css/employee.css', 
+        @vite(['resources/css/bootstrap.min.css', 'resources/css/style.min.css', 'resources/css/employee.css', 
         'resources/js/sidebarmenu.js', 'resources/js/waves.js', 
         'resources/js/app-style-switcher.js', 'resources/js/custom.js', 
         'resources/js/dashboard1.js', 'resources/js/jquery.min.js', 
@@ -23,52 +23,6 @@
         <div id="preloder">
             <div class="loader"></div>
         </div>
-
-        <!-- Offcanvas Menu Begin -->
-        <!-- <div class="offcanvas-menu-overlay"></div>
-        <div class="offcanvas-menu-wrapper">
-            <div class="offcanvas__nav__option">
-                <a href="#" class="search-switch"><img src='resources/img/icon/search.png' alt=""></a>
-                <a href="#"><img src="resources/img/icon/cart.png" alt=""> <span>0</span></a>
-            </div>
-        </div> -->
-        <!-- Offcanvas Menu End -->
-
-        <!-- Header Section Begin -->
-        <!-- <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3">
-                        <div class="header__logo">
-                            <a href="./index.html"><img src="{{Vite::asset('resources/img/logo.png')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <nav class="header__menu mobile-menu">
-                        </nav>
-                    </div>
-                    <div class="col-lg-3 col-md-3">
-                        <div class="header__nav__option">
-                            <a href="#"><img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="canvas__open"><i class="fa fa-bars"></i></div>
-            </div>
-        </header> -->
-        <!-- Header Section End -->
-
-        <!-- <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div> -->
 
         <!-- ============================================================== -->
         <!-- Main wrapper - style you can find in pages.scss -->
@@ -143,14 +97,14 @@
                         <ul id="sidebarnav">
                             <!-- User Profile-->
                             <li class="sidebar-item pt-2">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('pegawai.produk.index') }}"
                                     aria-expanded="false">
                                         <img src="{{Vite::asset('resources/img/icon/employee/produk.png')}}" width="20">
                                     <span class="hide-menu">&nbsp;&nbsp;&nbsp;Produk</span>
                                 </a>
                             </li>
                             <li class="sidebar-item pt-2">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('pegawai.penjualan.index') }}"
                                     aria-expanded="false">
                                         <img src="{{Vite::asset('resources/img/icon/employee/penjualan.png')}}" width="20">
                                     <span class="hide-menu">&nbsp;&nbsp;&nbsp;Penjualan</span>
@@ -171,7 +125,7 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <div class="page-breadcrumb bg-white">
+                <div class="page-breadcrumb bg-white hide">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title">Produk</h4>
@@ -193,7 +147,7 @@
                 <!-- Container fluid  -->
                 <!-- ============================================================== -->
                 <div class="container-fluid">
-                    <div style="height: 1000px; width: 100%">
+                    <div style="min-height: 1000px; width: 100%">
                         {{ $slot }}
                     </div>
                 </div>
