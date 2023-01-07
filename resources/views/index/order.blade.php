@@ -1,3 +1,3 @@
 <x-home-layout>
-    Order
+    {{ dump($penjualan) }}
 </x-home-layout>

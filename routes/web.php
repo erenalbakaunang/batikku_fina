@@ -44,9 +44,10 @@ Route::middleware(['pelanggan'])->group(function () {
 
 Route::middleware(['auth', 'pelanggan'])->group(function () {
     Route::get('/cart', [IndexController::class, 'cart'])->name('index.cart');
+    Route::get('/cart/{id}', [IndexController::class, 'cartDelete'])->name('index.cartDelete');
 
-    Route::get('/checkout', [IndexController::class, 'checkout'])->name('index.checkout');
-    Route::get('/checkout/{id}', [IndexController::class, 'order'])->name('index.order');
+    Route::post('/checkout', [IndexController::class, 'checkout'])->name('index.checkout');
+    Route::post('/order', [IndexController::class, 'order'])->name('index.order');
 
     Route::get('/profile', [IndexController::class, 'profile'])->name('index.profile');
     Route::post('/profile', [IndexController::class, 'profileUpdate'])->name('index.profileUpdate');

@@ -4475,3 +4475,57 @@ div.form-profile {
     border: solid 1px #dedede;
     padding: 25px;
 }
+
+.bank-icon {
+	height: 20px;
+}
+
+.table-cart td {
+	border: 0px !important;
+}
+
+.table-cart tr.last td {
+	border-bottom: solid 1px #ababab !important;
+	padding-bottom: 20px;
+}
+
+.table-cart tr.first td {
+	padding-top: 40px;
+}
+
+.link-delete-cart, 
+.link-delete-cart:hover,
+.link-delete-cart:focus{
+	color: #C8B39B;
+}
+
+.link-product, 
+.link-product:hover,
+.link-product:focus{
+	color: #000;
+}
+
+.checkout .bank-icon {
+	border: solid 1px #ababab;
+	padding: 3px;
+	height: 25px;
+}
+
+.checkout .boxChoose {
+	border-bottom: solid 1px #ababab;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+table.no-border td {
+	border: none !important;
+}
+
+table.buat-pesanan td {
+	font-size: 13px;
+}
+
+table.buat-pesanan td:nth-child(odd) {
+	font-weight: bold;
+	width: 50%;
+}

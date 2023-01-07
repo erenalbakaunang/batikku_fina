@@ -22,4 +22,9 @@ class Cart extends Model
         'produk_id',
         'pelanggan_id',
     ];
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }
