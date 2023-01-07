@@ -31,7 +31,7 @@
                 Waktu pembayaran 1 x 24 jam
             </div>
 
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 text-center mt-5">
                 <a href="{{ route('index.profile') }}">
                     <button class="btn btn-sm btn-dark" style="width: 30%;">
                         OK

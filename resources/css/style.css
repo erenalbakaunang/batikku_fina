@@ -3978,7 +3978,7 @@ input {
     border: 1px solid gray;
 }
 
-button {
+button:not(.btn) {
     border: none;
     outline: none;
     padding: 8px;
@@ -4496,13 +4496,25 @@ div.form-profile {
 .link-delete-cart, 
 .link-delete-cart:hover,
 .link-delete-cart:focus{
-	color: #C8B39B;
+	color: #8C6C1A;
 }
 
 .link-product, 
 .link-product:hover,
 .link-product:focus{
 	color: #000;
+}
+
+.bgcolor {
+	background-color: #8C6C1A !important;
+}
+
+.bdcolor {
+	border-color: #8C6C1A !important;
+}
+
+.fcolor {
+	color: #8C6C1A !important;
 }
 
 .checkout .bank-icon {
@@ -4559,4 +4571,21 @@ table.buat-pesanan td:nth-child(odd) {
 .aboutUs img {
 	height: 125px;
 	width: 250px;
+}
+
+.qty {
+	width: 120px;
+}
+
+.qty > .input-group-text {
+	border-radius: 0px !important;
+	background-color: white !important;
+	cursor: pointer;
+}
+
+.qty > input {
+	margin: 0px !important;
+	border-right: none !important;
+	border-left: none !important;
+	background: white !important;
 }

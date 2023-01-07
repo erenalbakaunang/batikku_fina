@@ -53,6 +53,46 @@ class IndexController extends Controller
         ]);
     }
 
+    public function cartAdd(Request $request)
+    {
+        $userModel = $request->user();
+        $pelangganModel = $userModel->getPelanggan();
+
+        $qty = $request->get('quantity');
+        $produk_id = $request->get('produk_id');
+
+        $cartModel = Cart::where([
+            'produk_id' => $produk_id,
+            'pelanggan_id' => $pelangganModel->id,
+        ])->first();
+            
+        if(empty($cartModel)) {
+            // Create new cart
+            Cart::create([
+                'jumlah' => $qty,
+                'produk_id' => $produk_id,
+                'pelanggan_id' => $pelangganModel->id,
+            ]);
+        } else {
+            $produkModel = Produk::find($produk_id);
+            $stok = $produkModel->stok;
+
+            $new_jumlah = $cartModel->jumlah + $qty;
+            if($new_jumlah > $stok) {
+                $qty = $stok;
+            } else {
+                $qty = $new_jumlah;
+            }
+
+            // Update cart
+            $cartModel->update([
+                'jumlah' => $qty,
+            ]);
+        }
+
+        return Redirect::back()->with('status', 'cart-updated');
+    }
+
     public function cartDelete(Request $request, $cart_id)
     {
         $cartModel = Cart::find($cart_id);

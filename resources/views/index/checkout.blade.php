@@ -81,10 +81,10 @@
 
                     <div class="col-lg-1"></div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                         <table class="table no-border buat-pesanan">
                             <tr>
-                                <td>Subtotal untuk produk</td>
+                                <td style="width: 180px;">Subtotal untuk produk</td>
                                 <td>Rp{{ number_format($total_pembayaran, '0', ',', '.') }}</td>
                             </tr>
                             <tr>
@@ -96,8 +96,8 @@
                                 <td>Rp{{ number_format( $total_pembayaran+env('BIAYA_LAYANAN'), '0', ',', '.') }}</td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    <button type="submit" class="btn btn-sm btn-dark">
+                                <td colspan="2" class="text-center">
+                                    <button type="submit" class="btn btn-sm btn-dark col-lg-8">
                                         Buat Pesanan
                                     </button>
                                 </td>
