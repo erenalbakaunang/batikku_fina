@@ -23,6 +23,7 @@ class Produk extends Model
         'stok',
         'foto',
         'deskripsi',
+        'id_produk',
     ];
 
     public function getPenjualan()

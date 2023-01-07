@@ -95,43 +95,45 @@
         </form>
     </div>
 
-    <div class="col-lg-8 col-md-8 offset-lg-2 pl-3 pr-3 mb-5 mt-5">
-        <h5><b>Pesanan Saya</b></h5>
-        <small>Cek status pesanan anda</small>
+    @if(!empty($penjualan))
+        <div class="col-lg-8 col-md-8 offset-lg-2 pl-3 pr-3 mb-5 mt-5">
+            <h5><b>Pesanan Saya</b></h5>
+            <small>Cek status pesanan anda</small>
 
-        <div class="col-lg-12 col-md-12 form-profile">
-            @foreach($penjualan as $nomor_pesanan => $datas)
+            <div class="col-lg-12 col-md-12 form-profile">
+                @foreach($penjualan as $nomor_pesanan => $datas)
 
-                <?php $total_pesanan = 0; ?>
+                    <?php $total_pesanan = 0; ?>
 
-                @foreach($datas as $data)
-                    <div class="col-lg-12 row mb-2">
-                        <div class="col-lg-3">
-                            <img src="{{ url('foto/'.$data->produk->foto) }}" />
+                    @foreach($datas as $data)
+                        <div class="col-lg-12 row mb-2">
+                            <div class="col-lg-3">
+                                <img src="{{ url('foto/'.$data->produk->foto) }}" />
+                            </div>
+
+                            <div class="col-lg-9">
+                                <h5><b>{{ $data->produk->nama_produk }}</b></h5>
+                                <p>Rp.{{ number_format($data->produk->harga, 0, ',', '.') }}</p>
+                                <p>x {{ $data->jumlah_produk }}</p>
+                                <p class="text-right">Rp.{{ number_format($data->jumlah, 0, ',', '.') }}</p>
+                            </div>
                         </div>
 
-                        <div class="col-lg-9">
-                            <h5><b>{{ $data->produk->nama_produk }}</b></h5>
-                            <p>Rp.{{ number_format($data->produk->harga, 0, ',', '.') }}</p>
-                            <p>x {{ $data->jumlah_produk }}</p>
-                            <p class="text-right">Rp.{{ number_format($data->jumlah, 0, ',', '.') }}</p>
-                        </div>
+                        <?php $total_pesanan += $data->jumlah; ?>
+                    @endforeach
+
+                    <div class="col-lg-12 row mt-3 mb-2">
+                        <div class="col-lg-10 text-right"><b>Total Pesanan</b></div>
+                        <div class="col-lg-2">RP {{ number_format( ($total_pesanan+env('BIAYA_LAYANAN')), 0, ',', '.') }}</div>
                     </div>
 
-                    <?php $total_pesanan += $data->jumlah; ?>
+                    <div class="col-lg-12 mt-3 mb-5 text-right">
+                        <button class="btn btn-{{ ($data['status'] == 'Belum Bayar') ? 'warning' : 'dark' }}">
+                            {{ $data['status'] }}
+                        </button> 
+                    </div>
                 @endforeach
-
-                <div class="col-lg-12 row mt-3 mb-2">
-                    <div class="col-lg-10 text-right"><b>Total Pesanan</b></div>
-                    <div class="col-lg-2">RP {{ number_format( ($total_pesanan+env('BIAYA_LAYANAN')), 0, ',', '.') }}</div>
-                </div>
-
-                <div class="col-lg-12 mt-3 mb-5 text-right">
-                    <button class="btn btn-{{ ($data['status'] == 'Belum Bayar') ? 'warning' : 'dark' }}">
-                        {{ $data['status'] }}
-                    </button> 
-                </div>
-            @endforeach
+            </div>
         </div>
-    </div>
+    @endif
 </x-home-layout>

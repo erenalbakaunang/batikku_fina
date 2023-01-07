@@ -148,7 +148,7 @@ class IndexController extends Controller
         // $penjualan = Penjualan::groupBy('nomor_pesanan')->selectRaw('*, sum(jumlah) as total')->get();
 
         $penjualan = []; 
-        foreach(Penjualan::all() as $key => $data) {
+        foreach(Penjualan::where('pelanggan_id', $pelangganModel->id)->get() as $key => $data) {
             if(!isset($penjualan[$data['nomor_pesanan']])) {
                 $penjualan[$data['nomor_pesanan']] = [];
             } 

@@ -57,7 +57,7 @@
                 <div class="form-group row">
                     <x-input-label for="stok" class="mt-1 col-sm-2" :value="__('Stok')" />
                     <div class="col-sm-10">
-                        <input type="number" id="stok" name="stok" placeholder="0" :value="old('stok')" required type="text" class="mt-1 form-control" autocomplete="stok" />
+                        <input type="number" id="stok" name="stok" placeholder="0" value="{{ old('stok') }}" required type="text" class="mt-1 form-control" autocomplete="stok" />
                     </div>
                 </div>
 

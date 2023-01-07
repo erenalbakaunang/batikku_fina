@@ -49,6 +49,7 @@ class ProdukController extends Controller
             'stok' => ['required', 'integer'],
             'foto' => 'required|mimes:jpeg,png,jpg,gif',
             'deskripsi' => ['required', 'string'],
+            'id_produk' => ['required', 'string', 'max:10'],
         ]);
 
         $foto = $request->file('foto');
@@ -63,6 +64,7 @@ class ProdukController extends Controller
             'stok' => $request->get('stok'),
             'foto' => $imageName,
             'deskripsi' => $request->get('deskripsi'),
+            'id_produk' => $request->get('id_produk'),
         ]);
 
         return Redirect::route('pegawai.produk.index')->with('status', 'produk-added');
@@ -78,6 +80,7 @@ class ProdukController extends Controller
             'stok' => ['required', 'integer'],
             'foto' => 'mimes:jpeg,png,jpg,gif',
             'deskripsi' => ['required', 'string'],
+            'id_produk' => ['required', 'string', 'max:10'],
         ]);
 
         $foto = $request->file('foto');
@@ -101,6 +104,7 @@ class ProdukController extends Controller
             'harga' => $request->get('harga'),
             'stok' => $request->get('stok'),
             'deskripsi' => $request->get('deskripsi'),
+            'id_produk' => $request->get('id_produk'),
         ]);
 
         return Redirect::route('pegawai.produk.edit', $id)->with('status', 'produk-updated');
