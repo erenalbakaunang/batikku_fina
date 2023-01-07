@@ -60,11 +60,16 @@ class IndexController extends Controller
 
         $qty = $request->get('quantity');
         $produk_id = $request->get('produk_id');
+        $cart_id = $request->get('cart_id');
 
-        $cartModel = Cart::where([
-            'produk_id' => $produk_id,
-            'pelanggan_id' => $pelangganModel->id,
-        ])->first();
+        if(empty($cart_id)) {
+            $cartModel = Cart::where([
+                'produk_id' => $produk_id,
+                'pelanggan_id' => $pelangganModel->id,
+            ])->first();
+        } else {
+            $cartModel = Cart::find($cart_id);
+        }
             
         if(empty($cartModel)) {
             // Create new cart
@@ -77,7 +82,14 @@ class IndexController extends Controller
             $produkModel = Produk::find($produk_id);
             $stok = $produkModel->stok;
 
-            $new_jumlah = $cartModel->jumlah + $qty;
+            if(!empty($cart_id)) {
+                // submitted from cart page
+                $new_jumlah = $qty;
+            } else {
+                // submitted from product page
+                $new_jumlah = $cartModel->jumlah + $qty;
+            }
+
             if($new_jumlah > $stok) {
                 $qty = $stok;
             } else {
@@ -125,7 +137,7 @@ class IndexController extends Controller
         } else {
             foreach($cartIds as $cart_id) {
                 $cartModel = Cart::find($cart_id);
-                $total_pembayaran = ($cartModel->produk->harga * $cartModel->jumlah);
+                $total_pembayaran += ($cartModel->produk->harga * $cartModel->jumlah);
             }
 
             return view('index.checkout', [

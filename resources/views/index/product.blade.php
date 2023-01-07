@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <button class="btn btn-dark btn-lg pt-3 pb-3 col-lg-6 bgcolor bdcolor">
+                    <button class="btn btn-dark btn-lg pt-3 pb-3 col-lg-6 bgcolor bdcolor" type="submit" {{$product->stok > 0 ?: 'disabled'}}>
                         <div style="font-size: 12px;">ADD TO CART</div>
                     </button>
                 </div>

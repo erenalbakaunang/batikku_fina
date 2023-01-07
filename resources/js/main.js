@@ -213,48 +213,61 @@
         });
     });
 
-    var inputQty = $('input[name=quantity]');
-    inputQty.attr('readonly', 'readonly');
+    // prevent from manual quantity typing by user
+    $('input[name=quantity]').attr('readonly', 'readonly');
     
     // This button will increment the value
-    $('[data-quantity="plus"]').click(function(e){
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var fieldName = $(this).attr('data-field');
-        // Get its current value
-        var currentVal = parseInt(inputQty.val());
-        // If is not undefined
-        var maxStok = parseInt(inputQty.attr('data-max'));
+    $('div.qty > span').each(function(){
+        var dataQty = $(this).attr('data-quantity');
+        var inputQty = $(this).parent().find('input[name=quantity]');
+        var dataOnClick = inputQty.attr('data-onclick');
+        var cartId = inputQty.attr('data-cartid');
+        var produkId = inputQty.attr('data-produkid');
 
-        if (!isNaN(currentVal)) {
-            var nextVal = currentVal + 1;
-            if(nextVal <= maxStok) {
-                // Increment
-                inputQty.val(nextVal);
+        $(this).click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+
+            var currentVal = parseInt(inputQty.val());
+            var maxStok = parseInt(inputQty.attr('data-max'));
+            var isChanged = false;
+
+            if(dataQty == 'plus') {
+                if (!isNaN(currentVal)) {
+                    var nextVal = currentVal + 1;
+                    if(nextVal <= maxStok) {
+                        // Increment
+                        inputQty.val(nextVal);
+                        isChanged = true;
+                    }
+                } else {
+                    // Otherwise put a 0 there
+                    inputQty.val(0);
+                }
+            } else {
+                if (!isNaN(currentVal) && currentVal > 1) {
+                    // Decrement one
+                    inputQty.val(currentVal - 1);
+                    isChanged = true;
+                } else {
+                    // Otherwise put a 0 there
+                    inputQty.val(1);
+                }
             }
-        } else {
-            // Otherwise put a 0 there
-            inputQty.val(0);
-        }
-    });
 
-    // This button will decrement the value till 0
-    $('[data-quantity="minus"]').click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var fieldName = $(this).attr('data-field');
-        // Get its current value
-        var currentVal = parseInt(inputQty.val());
-        // If it isn't undefined or its greater than 0
-        if (!isNaN(currentVal) && currentVal > 1) {
-            // Decrement one
-            inputQty.val(currentVal - 1);
-        } else {
-            // Otherwise put a 0 there
-            inputQty.val(1);
-        }
+            if(dataOnClick == 'submit') {
+                var qtyVal = inputQty.val();
+                var form = $('form#formCartAdd');
+
+                form.find('input[name=cart_id]').val(cartId);
+                form.find('input[name=produk_id]').val(produkId);
+                form.find('input[name=quantity]').val(qtyVal);
+                
+                if(isChanged) {
+                    form.submit();
+                }
+            }
+        });
     });
 
 })(jQuery);

@@ -10,8 +10,26 @@
         </div>
     @endif
 
+    @if (session('status') === 'cart-updated')
+        <div style="margin: 0 0 20px;"
+            x-data="{ show: true }"
+            x-show="show"
+            class="text-sm text-gray-600 alert alert-success"
+            role="alert">
+            <i class="fa fa-check"></i>&ensp;
+            {{ __('Cart updated') }}
+        </div>
+    @endif
+
     <div class="col-lg-11 ml-5">
         <h4>Products in the cart</h4>
+
+        <form action="{{ route('index.cartAdd') }}" method="POST" id="formCartAdd">
+            @csrf
+            <input type="hidden" name="cart_id" />
+            <input type="hidden" name="produk_id" />
+            <input type="hidden" name="quantity" />
+        </form>
 
         <form action="{{ route('index.checkout') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -41,6 +59,11 @@
                             <tr>
                                 <td>
                                     Quantity
+                                    <div class="input-group mb-3 qty">
+                                        <span class="input-group-text" data-quantity="minus" data-field="quantity">-</span>
+                                        <input type="text" name="quantity" class="form-control text-center" value="{{ $cart->jumlah }}" data-max="{{$cart->produk->stok}}" data-produkid="{{$cart->produk_id}}" data-cartid="{{$cart->id}}" data-onclick="submit" />
+                                        <span class="input-group-text" data-onclick="submit" data-quantity="plus" data-field="quantity">+</span>
+                                    </div>
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('index.cartDelete', $cart->id) }}" onclick="return confirm('Are you sure?')" class="link-delete-cart">

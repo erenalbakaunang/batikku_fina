@@ -124,11 +124,11 @@
 
                     <div class="col-lg-12 row mt-3 mb-2">
                         <div class="col-lg-10 text-right"><b>Total Pesanan</b></div>
-                        <div class="col-lg-2">RP {{ number_format( ($total_pesanan+env('BIAYA_LAYANAN')), 0, ',', '.') }}</div>
+                        <div class="col-lg-2 fcolor pl-0 pr-0 text-right"><b>RP {{ number_format( ($total_pesanan+env('BIAYA_LAYANAN')), 0, ',', '.') }}</b></div>
                     </div>
 
                     <div class="col-lg-12 mt-3 mb-5 text-right">
-                        <button class="btn btn-{{ ($data['status'] == 'Belum Bayar') ? 'warning' : 'dark' }}">
+                        <button class="btn btn-{{ ($data['status'] == 'Belum Bayar') ? 'bgcolor fcwhite' : 'secondary' }}" style="min-width: 150px;">
                             {{ $data['status'] }}
                         </button> 
                     </div>

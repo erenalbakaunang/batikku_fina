@@ -4505,7 +4505,7 @@ div.form-profile {
 	color: #000;
 }
 
-.bgcolor {
+.bgcolor, .btn-bgcolor {
 	background-color: #8C6C1A !important;
 }
 
@@ -4515,6 +4515,10 @@ div.form-profile {
 
 .fcolor {
 	color: #8C6C1A !important;
+}
+
+.fcwhite {
+	color: white !important;
 }
 
 .checkout .bank-icon {
@@ -4588,4 +4592,9 @@ table.buat-pesanan td:nth-child(odd) {
 	border-right: none !important;
 	border-left: none !important;
 	background: white !important;
+}
+
+button:disabled {
+	background-color: #666 !important;
+	cursor: default;
 }
