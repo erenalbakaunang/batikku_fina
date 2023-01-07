@@ -26,11 +26,13 @@
                 @foreach($newProducts as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
-                            <div class="product__item__text">
-                                <h6><a href="{{ route('index.product', $product->id) }}">{{ $product->nama_produk }}</a></h6>
-                                <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
-                            </div>
+                            <a href="{{ route('index.product', $product->id) }}" class="link-product">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
+                                <div class="product__item__text">
+                                    <h6>{{ $product->nama_produk }}</h6>
+                                    <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -58,11 +60,13 @@
                 @foreach($popular as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
-                            <div class="product__item__text">
-                                <h6><a href="{{ route('index.product', $product->id) }}">{{ $product->nama_produk }}</a></h6>
-                                <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
-                            </div>
+                            <a href="{{ route('index.product', $product->id) }}" class="link-product">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url('foto/'.$product->foto) }}"></div>
+                                <div class="product__item__text">
+                                    <h6>{{ $product->nama_produk }}</h6>
+                                    <h5>Rp{{ number_format($product->harga, 0, ',', '.') }}</h5>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach

@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $newProducts = Produk::offset(0)->limit(4)->get();
+        $newProducts = Produk::orderBy('id', 'DESC')->offset(0)->limit(4)->get();
         $popular = Produk::inRandomOrder()->limit(4)->get();
         
         return view('index.home', [
@@ -26,7 +26,12 @@ class IndexController extends Controller
     {
         $keyword = $request->get('keyword');
 
-        return view('index.search');
+        $produkModel = Produk::where('nama_produk', 'LIKE', '%'.$keyword.'%')->get();
+
+        return view('index.search', [
+            'keyword' => $keyword,
+            'products' => $produkModel,
+        ]);
     }
 
     public function about(Request $request)
@@ -69,18 +74,25 @@ class IndexController extends Controller
 
     public function checkout(Request $request)
     {
+        $userModel = $request->user();
+        $pelangganModel = $userModel->getPelanggan();
+
         $cartIds = $request->get('cart_id');
+        $total_pembayaran = 0;
 
         if(empty($cartIds)) {
             return Redirect::route('index.cart');
         } else {
-            $userModel = $request->user();
-            $pelangganModel = $userModel->getPelanggan();
+            foreach($cartIds as $cart_id) {
+                $cartModel = Cart::find($cart_id);
+                $total_pembayaran = ($cartModel->produk->harga * $cartModel->jumlah);
+            }
 
             return view('index.checkout', [
                 'user' => $userModel,
                 'pelanggan' => $pelangganModel,
                 'cartIds' => $cartIds,
+                'total_pembayaran' => $total_pembayaran,
             ]);
         }
     }
@@ -119,10 +131,13 @@ class IndexController extends Controller
 
         $penjualanModel = Penjualan::where('nomor_pesanan', $nomor_pesanan)->groupBy('nomor_pesanan')->selectRaw('*, sum(jumlah) as total')->first();
 
+        $bank = str_replace('Transfer ', '', $penjualanModel->pembayaran);
+
         return view('index.order', [
             'user' => $userModel,
             'pelanggan' => $pelangganModel,
             'penjualan' => $penjualanModel,
+            'bank' => strtolower($bank),
         ]);
     }
 

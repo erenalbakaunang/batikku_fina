@@ -4529,3 +4529,34 @@ table.buat-pesanan td:nth-child(odd) {
 	font-weight: bold;
 	width: 50%;
 }
+
+.orderBox {
+	border: solid 1px #ababab;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 13px;
+}
+
+.payment {
+	border-bottom: solid 1px #ababab;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.boxNomorRekening {
+	border: solid 1px #ababab;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+}
+
+.aboutUs .desc {
+	font-size: 13px;
+}
+
+.aboutUs img {
+	height: 125px;
+	width: 250px;
+}

@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-lg-1 col-md-1">
                         <div class="header__logo">
-                            <a href="./index.html"><img src="{{Vite::asset('resources/img/logo.png')}}" alt=""></a>
+                            <a href="{{ route('index.home') }}"><img src="{{Vite::asset('resources/img/logo.png')}}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3">
@@ -62,14 +62,16 @@
                                     <form method="POST" action="{{ route('index.search') }}" style="margin: 0;">
                                         @csrf
 
-                                        <input type="text" name="keyword" class="input w-full" placeholder="Search Product" />
+                                        <input type="text" name="keyword" class="input w-full" value="{{ Request::get('keyword') }}" placeholder="Search Product" />
                                     </form>
                                 </div>
                             </div>
                             <div class="col-md-2" style="float: left; padding: 15px 0;">
                                 <!-- <a href="#" class="search-switch"><img src="{{Vite::asset('resources/img/icon/search.png')}}" alt=""></a> -->
                                 <a href="{{ route('index.cart') }}"><img src="{{Vite::asset('resources/img/icon/cart.png')}}" alt=""> </a>
-                                <a href="{{ route('index.profile') }}"><img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt=""> </a>
+                                @if (Auth::check())
+                                    <a href="{{ route('index.profile') }}"><img src="{{Vite::asset('resources/img/icon/profil.png')}}" alt=""> </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -99,7 +101,7 @@
                             <h6 class="text_acompany">A Company by:</h6> 
                         
                             <div class="footer__logo">
-                                <a href="#"><img src="{{Vite::asset('resources/img/logo1.png')}}" alt=""></a>
+                                <a href="{{ route('index.home') }}"><img src="{{Vite::asset('resources/img/logo1.png')}}" alt=""></a>
                             </div>
                             <p>Batikku Company</p>
                             <!-- <a href="#"><img src="img/payment.png" alt=""></a> -->
@@ -109,7 +111,7 @@
                         <div class="footer__widget">
                             <h6>Social Media</h6>
                             <ul>
-                                <li><a href="#">Batikku</a></li>
+                                <li><a href="{{ route('index.home') }}">Batikku</a></li>
                                 <li><a href="#">087684321345</a></li>
                                 <li><a href="#">Batikku@gmail.co.id</a></li>
                             </ul>

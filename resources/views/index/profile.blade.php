@@ -123,7 +123,7 @@
 
                 <div class="col-lg-12 row mt-3 mb-2">
                     <div class="col-lg-10 text-right"><b>Total Pesanan</b></div>
-                    <div class="col-lg-2">RP {{ number_format($total_pesanan, 0, ',', '.') }}</div>
+                    <div class="col-lg-2">RP {{ number_format( ($total_pesanan+env('BIAYA_LAYANAN')), 0, ',', '.') }}</div>
                 </div>
 
                 <div class="col-lg-12 mt-3 mb-5 text-right">

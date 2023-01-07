@@ -85,15 +85,15 @@
                         <table class="table no-border buat-pesanan">
                             <tr>
                                 <td>Subtotal untuk produk</td>
-                                <td>Rp</td>
+                                <td>Rp{{ number_format($total_pembayaran, '0', ',', '.') }}</td>
                             </tr>
                             <tr>
                                 <td>Biaya Layanan</td>
-                                <td>Rp</td>
+                                <td>Rp{{ number_format(env('BIAYA_LAYANAN'), '0', ',', '.') }}</td>
                             </tr>
                             <tr>
                                 <td>Total Pembayaran</td>
-                                <td>Rp</td>
+                                <td>Rp{{ number_format( $total_pembayaran+env('BIAYA_LAYANAN'), '0', ',', '.') }}</td>
                             </tr>
                             <tr>
                                 <td colspan="2">
